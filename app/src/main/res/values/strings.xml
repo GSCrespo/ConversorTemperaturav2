@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Conversor Temperaturav2</string>
+    <string name="string_temperature">Temperatura</string>
+    <string name="hint_temperature">Digite a temperatura</string>
+</resources>
