@@ -46,5 +46,55 @@
         app:layout_constraintStart_toEndOf="@id/textview_temperature"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <Button
+        android:id="@+id/btn_celsius"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/str_btnCelsius"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toStartOf="@id/btn_fahrenheit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_horizontal1"/>
+
+    <Button
+        android:id="@+id/btn_fahrenheit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/str_btnFahrenheit"
+        android:textSize="16sp"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_celsius"
+        app:layout_constraintTop_toBottomOf="@id/guideline_horizontal1"
+
+        />
+
+    <TextView
+        android:id="@+id/textview_result_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_result"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_horizontal2"/>
+
+    <TextView
+        android:id="@+id/textview_result_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/color_result"
+        app:layout_constraintEnd_toEndOf="@id/textview_result_number"
+        app:layout_constraintStart_toStartOf="@id/textview_result_number"
+        app:layout_constraintTop_toBottomOf="@id/guideline_horizontal2"/>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
