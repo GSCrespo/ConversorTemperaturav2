@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
 import android.util.Log
+import android.view.View.OnClickListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.dmo1.conversortemperaturav2.R
@@ -43,35 +44,39 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun readTemperature(): Double{
-        return try{
-
-            binding.textviewTemperature.text.toString().toDouble()
-        }catch(e: NumberFormatException){
-            throw NumberFormatException("Input Error")
+        return try {
+            val temp = binding.edittextTemperature.text.toString()
+            if (temp.isEmpty()) {
+                throw NumberFormatException("Input is empty")
+            }
+            temp.toDouble()
+        } catch (e: NumberFormatException) {
+            // Exibe uma mensagem de erro detalhada ao usuário
+            Toast.makeText(this, "Invalid input, please enter a valid number", Toast.LENGTH_SHORT).show()
+            throw e
         }
     }
 
 
-    @SuppressLint("DefaultLocale")
+
     private fun handleConversion(strategy: ConversorTemperatura){
         converterStrategy = strategy
 
-        try{
+        try {
             val inputValue = readTemperature()
-            binding.textviewResultNumber.text = String.format(
-                "%.2f %s",
-                converterStrategy.converter(inputValue),
-                converterStrategy.getScale()
-            )
-            binding.textviewResultMessage.text = if(this.converterStrategy is CelsiusStrategy){
-                getString(R.string.msgFtoC)
-            }else if(this.converterStrategy is FahrenheitStrategy){
-                getString(R.string.msgCtoF)
-            }else{
-                getString(R.string.msgCtoK)
+            val result = converterStrategy.converter(inputValue)
+
+
+            binding.textviewResultNumber.text = String.format("%.2f %s",converterStrategy.converter(inputValue),
+                converterStrategy.getScale())
+
+            // Exibe a mensagem de conversão baseada na estratégia
+            binding.textviewResultMessage.text = when (strategy) {
+                is CelsiusStrategy -> getString(R.string.msgCtoF)
+                is FahrenheitStrategy -> getString(R.string.msgFtoC)
+                is KelvinStrategy -> getString(R.string.msgCtoK)
+                else -> ""
             }
-
-
         }catch (e: Exception){
             Toast.makeText(
                 this,getString(R.string.error_popup_notify),Toast.LENGTH_SHORT
