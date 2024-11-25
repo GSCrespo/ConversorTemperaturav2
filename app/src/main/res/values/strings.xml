@@ -2,8 +2,8 @@
     <string name="app_name">Conversor Temperaturav2</string>
     <string name="string_temperature">Temperatura</string>
     <string name="hint_temperature">Digite a temperatura</string>
-    <string name="str_btnFahrenheit_celsius">Fahrenheit-Celsius</string>
-    <string name="str_btnCelsius_fahrenheit">Celsius-Fahrenheit</string>
+    <string name="str_btnFahrenheit_celsius" translatable="false">Fahrenheit-Celsius</string>
+    <string name="str_btnCelsius_fahrenheit" translatable="false">Celsius-Fahrenheit</string>
     <string name="str_btnKelvin">Fahrenheit-Kelvin</string>
     <string name="msgCtoF">Realizada a conversão de Celsius para Fahrenheit</string>
     <string name="msgFtoC">Realizada a conversão de Fahrenheit para Celsius</string>
