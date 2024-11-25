@@ -1,12 +1,12 @@
 package br.edu.ifsp.dmo1.conversortemperaturav2.model
 
-object FahrenheitStrategy : ConversorTemperatura{
+object FahrenheitToKelvinStrategy : ConversorTemperatura {
 
     override fun converter(temperature: Double): Double {
-        return 1.8 * temperature + 32
+        return ( ( (temperature - 32) * 5 ) / 9) + 273.15
     }
 
     override fun getScale(): String {
-        return "ºF"
+        return "K"
     }
 }

@@ -36,6 +36,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
 
+
     <EditText
         android:id="@+id/edittext_temperature"
         android:layout_width="0dp"
@@ -48,44 +49,77 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-        android:id="@+id/btn_celsius"
+        android:id="@+id/btn_celsiusFahrenheit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/str_btnCelsius"
-        android:textSize="16sp"
+        android:text="@string/str_btnCelsius_fahrenheit"
+        android:textSize="11sp"
         android:textStyle="italic"
         android:textAllCaps="true"
-        app:layout_constraintEnd_toStartOf="@id/btn_fahrenheit"
+        app:layout_constraintEnd_toStartOf="@id/btn_fahrenheitCelsius"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline_horizontal1"/>
 
     <Button
-        android:id="@+id/btn_fahrenheit"
+        android:id="@+id/btn_fahrenheitCelsius"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/str_btnFahrenheit"
-        android:textSize="16sp"
+        android:text="@string/str_btnFahrenheit_celsius"
+        android:textSize="11sp"
         android:textAllCaps="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_celsius"
+        app:layout_constraintStart_toEndOf="@id/btn_celsiusFahrenheit"
         app:layout_constraintTop_toBottomOf="@id/guideline_horizontal1"
 
         />
 
     <Button
-        android:id="@+id/btn_kelvin"
+        android:id="@+id/btn_celsiusKelvin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Celsius-Kelvin"
+        android:textSize="11sp"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toEndOf="@id/btn_celsiusFahrenheit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_fahrenheitCelsius"/>
+
+
+    <Button
+        android:id="@+id/btn_fahrenheitKelvin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/str_btnKelvin"
-        android:textSize="16sp"
+        android:textSize="11sp"
         android:textAllCaps="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_celsiusKelvin"
+        app:layout_constraintTop_toBottomOf="@id/btn_fahrenheitCelsius"/>
+
+    <Button
+        android:id="@+id/btn_kelvinCelsius"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Kelvin-Celsius"
+        android:textSize="11sp"
+        android:textAllCaps="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/btn_celsiusKelvin"/>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Kelvin-Fahrenheit"
+        android:textSize="11sp"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toEndOf="@id/btn_kelvinCelsius"
+        app:layout_constraintTop_toBottomOf="@id/btn_fahrenheitKelvin"/>
+
 
     <TextView
         android:id="@+id/textview_result_number"

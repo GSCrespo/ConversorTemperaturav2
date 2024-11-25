@@ -1,18 +1,16 @@
 package br.edu.ifsp.dmo1.conversortemperaturav2.view
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.ifsp.dmo1.conversortemperaturav2.R
 import br.edu.ifsp.dmo1.conversortemperaturav2.databinding.ActivityMainBinding
-import br.edu.ifsp.dmo1.conversortemperaturav2.model.CelsiusStrategy
+import br.edu.ifsp.dmo1.conversortemperaturav2.model.FahrenheitToCelsiusStrategy
 import br.edu.ifsp.dmo1.conversortemperaturav2.model.ConversorTemperatura
-import br.edu.ifsp.dmo1.conversortemperaturav2.model.FahrenheitStrategy
-import br.edu.ifsp.dmo1.conversortemperaturav2.model.KelvinStrategy
-import kotlin.math.log
+import br.edu.ifsp.dmo1.conversortemperaturav2.model.CelsiusToFahrenheitStrategy
+import br.edu.ifsp.dmo1.conversortemperaturav2.model.CelsiusToKelvinStrategy
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,14 +28,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun setClickListener(){
 
-        binding.btnCelsius.setOnClickListener{
-            handleConversion(CelsiusStrategy)
+        binding.btnCelsiusFahrenheit.setOnClickListener{
+            handleConversion(CelsiusToFahrenheitStrategy)
         }
-        binding.btnFahrenheit.setOnClickListener{
-            handleConversion(FahrenheitStrategy)
+        binding.btnFahrenheitCelsius.setOnClickListener{
+            handleConversion(FahrenheitToCelsiusStrategy)
         }
-        binding.btnKelvin.setOnClickListener{
-            handleConversion(KelvinStrategy)
+        binding.btnCelsiusKelvin.setOnClickListener{
+            handleConversion(CelsiusToKelvinStrategy)
         }
 
     }
@@ -63,9 +61,9 @@ class MainActivity : AppCompatActivity() {
                 converterStrategy.converter(inputValue),
                 converterStrategy.getScale()
             )
-            binding.textviewResultMessage.text = if(this.converterStrategy is CelsiusStrategy){
+            binding.textviewResultMessage.text = if(this.converterStrategy is FahrenheitToCelsiusStrategy){
                 getString(R.string.msgFtoC)
-            }else if(this.converterStrategy is FahrenheitStrategy){
+            }else if(this.converterStrategy is CelsiusToFahrenheitStrategy){
                 getString(R.string.msgCtoF)
             }else{
                 getString(R.string.msgCtoK)
